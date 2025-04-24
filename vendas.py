@@ -3,10 +3,12 @@ vendas = []
 while True:
     produto = input("Nome do produto: ")
     quantidade = int(input("Quantidade vendida: "))
+    preco = float(input("Preço unitário (R$): "))
 
     vendas.append({
         "produto": produto,
-        "quantidade": quantidade
+        "quantidade": quantidade,
+        "preco": preco
     })
 
     cont = input("Deseja continuar? (s/n): ")
@@ -15,5 +17,5 @@ while True:
 
 print("\n--- Vendas Realizadas ---")
 for venda in vendas:
-    print(f"{venda['produto']} - {venda['quantidade']} unidades")
-    
+    total = venda["quantidade"] * venda["preco"]
+    print(f"{venda['produto']} - {venda['quantidade']} unidades - Total: R$ {total:.2f}")
